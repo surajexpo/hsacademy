@@ -1,50 +1,164 @@
 nav {
-    color: #f4f9e9;
-    background-color: #191919;
-  }
-  .navbar-brand{
-      font-size: 2.5rem;
-      color: #FF9933;
-      cursor: pointer;
-  }
-  .search-btn{
-      color: #FFF;
-      border: 1px solid #FFF;
-      background-color: #FF9933;
-  }
-  .general-form{
-    width: 50%;
-    margin: auto;
-  }
-  .input{
-    background-color: #191919;
-    color: #f4f9e9;
-    width: 100%;
-    border: none;
-    box-shadow: none;
-    outline: none;
-    text-decoration: none;
-    line-height: 1.5;
+  color: #f4f9e9;
+  background-color: #191919;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    color: #FF9933;
+    cursor: pointer;
+}
+.search-btn{
+    color: #FFF;
+    border: 1px solid #FFF;
+    background-color: #FF9933;
+}
+.general-form{
+  width: 50%;
+  margin: auto;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-background-clip: padding-box;
-border-radius: 0.25rem;
-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-font-weight: 200;
-font-size: 18px;
-  }
-  .files input:focus{     outline: 2px dashed #fff;  outline-offset: -10px;
-    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #fff;
- }
-  @media screen and (max-width: 576px) {
-    .general-form{
-      width:80%;
-    }
-    .navbar>.container-fluid{
-        justify-content: center !important;
-      }
-  }
+.login {
+  height: auto;
+  // background-color: #000000eb;
+  color: white;
+}
+.text-fields {
+  width: 100%;
+  box-shadow: 0px 0px 9px 1px  #FF9933;
+  height: 4rem;
+  border-radius: 5px;
+  position: static;
+  z-index: 0;
+}
+.text-fields input{
+  border: none;
+  background-color: #191919 !important;
+  outline: none;
+  height: 3.5rem;
+  width: 90%;
+  font-size: large;
+  color: white !important;
+}
+.text-fields .f-select{
+  border: none;
+  background-color:#191919 ;
+  height: 3.5rem;
+  width: 100%;
+  color: white !important;
+
+}
+.text-fields .f-select option{
+  background-color:#191919 ;
+}
+.f-label {
+  width: fit-content;
+  padding: 0 6px;
+  background-color: #191919;
+  position: relative;
+  top: 14px;
+}
+input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+}
+input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  border: 2px solid #ffffff;
+  border-radius: 3px;
+  background-color: #000000eb;
+}
+input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+.terms {
+  color: #617883;
+  text-decoration: none;
+  cursor: pointer;
+}
+.log-in {
+  background-color: #7a98a6;
+  color: #ffff;
+  width: 100%;
+  height: 4rem;
+  border-radius: 5px;
+}
 
 
 
+//   .input{
+//     background-color: #191919;
+//     color: #f4f9e9;
+//     width: 100%;
+//     border: none;
+//     box-shadow: none;
+//     outline: none;
+//     text-decoration: none;
+//     line-height: 1.5;
+
+// background-clip: padding-box;
+// border-radius: 0.25rem;
+// transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+// font-weight: 200;
+// font-size: 18px;
+//   }
+//   .files input:focus{     outline: 2px dashed #fff;  outline-offset: -10px;
+//     -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+//     transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #fff;
+//  }
+
+@media only screen and (max-width: 768px) {
   
+.text-fields input {
+  height: 2.5rem;
+}
+.text-fields {
+  height: 3rem;
+}
+/* .bg-image {
+  min-height: 743px;
+} */
+}
+@media screen and (max-width: 576px) {
+.navbar>.container-fluid{
+  justify-content: center !important;
+}
+  .general-form{
+    width:80%;
+  }
+ 
+}
+
+
+
+
+

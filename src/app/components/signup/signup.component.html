@@ -1,141 +1,265 @@
 <div class="container">
-    <div class="p-3">
-      <marquee width="80%" direction="left" height="30px" scrollamount="1">
-        Online Seminar on AI for Girl Power during 2-5 PM on the fourth Sunday of
-        every month
-      </marquee>
-    </div>
+  <div class="p-3">
+    <marquee width="80%" direction="left" height="30px" scrollamount="1">
+      Online Seminar on AI for Girl Power during 2-5 PM on the fourth Sunday of
+      every month
+    </marquee>
   </div>
-  <nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand mb-3 " routerLink="/">HS ACADEMY</a>
-      <form class="d-flex" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-    </div>
-  </nav>
-  <div class="container mt-3">
-    <div class="general-form">
-    <form >
-        <div class="mb-1">
-            
-          <input type="number" class="input" id="exampleInputEmail1" placeholder="Your Mobile No." aria-describedby="emailHelp">
-        </div>
-        <div class="mb-1">
-            <input type="date" class="input" id="exampleInputPassword1" placeholder="Your date of birth" name="dob" onfocus="(this.type='date')" style="border:
-            none;">
+</div>
+<nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-3" routerLink="/">HS ACADEMY</a>
+    <form class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+</nav>
+<div class="container mt-3">
+  <div class="general-form">
+    <div class="login rounded py-2">
+      <div class="text-center">
+        <h1 class="text-white">REGISTER</h1>
+      </div>
+      <form class="px-3">
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label>Your Mobile No.</label>
           </div>
-        <div class="mb-1">
-          <input type="text" class="input" placeholder="Your place of birth" id="exampleInputPassword1">
-        </div>
-        <div class="mb-1">
-            <input type="text" class="input" placeholder="Address" id="exampleInputPassword1">
+          <div class="text-fields px-3">
+            <input type="number" formControlName="fullName" required />
           </div>
-          
-        <div class="mb-1">
-          <select class="input" aria-label="Default select example">
-            <option selected>Your Gender</option>
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-            <option value="3">Other</option>
-          </select>
         </div>
-          <div class="mb-1">
-            <select class="input" aria-label="Default select example">
-              <option selected>Do you belong to below poverty line category</option>
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label>Your date of birth</label>
+          </div>
+          <div class="text-fields px-3">
+            <input type="date" formControlName="email" required />
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label>Your address</label>
+          </div>
+          <div class="text-fields px-3">
+            <input type="text" formControlName="mobileNo" required />
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label>Your Gender </label> </div>
+            <div class="text-fields px-3">
+              <select class="f-select" aria-label="Default select example" >
+                <option selected>Select</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+              </select>
+            </div>
+         
+        </div>
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label>Do you belong to below poverty line category</label>
+          </div>
+          <div class="text-fields px-3">
+            <select class="f-select" aria-label="Default select example">
+              <option selected>Select</option>
               <option value="1">Yes</option>
               <option value="2">No</option>
             </select>
           </div>
-          <div class="mb-1">
-            <select class="input" aria-label="Default select example">
-              <option selected>Do you belong to the underprivileged category</option>
-            
+        </div>
+        <div class="mb-3">
+          <div class="text-center ms-3 f-label">
+            <label> Do you belong to the underprivileged category</label>
+          </div>
+          <div class="text-fields px-3">
+            <select class="f-select" aria-label="Default select example">
+              <option selected>Select</option>
+
               <option value="2">Yes</option>
               <option value="3">No</option>
             </select>
           </div>
-          <div class="mb-1">
-            <select class="input" aria-label="Default select example">
-              <option selected>Do you want to register as a</option>
-             <option value="1">Advocate</option>
-             <option value="2">Client</option>
-             <option value="3">College</option>
-             <option value="4">Customer</option>
-             <option value="5">Doctor</option>
-             <option value="6">Hospital</option>
-             <option value="7">Institute</option>
-             <option value="8">Manager</option>
-             <option value="9">Mobilizer</option>
-             <option value="10">NGO</option>
-             <option value="11">School</option>
-             <option value="12">Supplier</option>
-             <option value="13">Student</option>
-             <option value="14">Teacher</option>
-             <option value="15">University</option>
-            </select>
-          </div>
-          <div class="dropdown my-3 d-none">
-  <p></p>
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Please select
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" >Advocate</a></li>
-              <li><a class="dropdown-item" >Client</a></li>
-              <li><a class="dropdown-item" >College</a></li>
-              <li><a class="dropdown-item" >Customer</a></li>
-              <li><a class="dropdown-item" >Doctor</a></li>
-              <li><a class="dropdown-item" >Hospital</a></li>
-              <li><a class="dropdown-item" >Institute</a></li>
-              <li><a class="dropdown-item" >Manager</a></li>
-              <li><a class="dropdown-item" >Mobilizer</a></li>
-              <li><a class="dropdown-item" >NGO</a></li>
-              <li><a class="dropdown-item" >School</a></li>
-              <li><a class="dropdown-item" >Supplier</a></li>
-              <li><a class="dropdown-item" >Student</a></li>
-              <li><a class="dropdown-item" >Teacher</a></li>
-              <li><a class="dropdown-item" >University</a></li>
-             
-              
-            </ul>
-          </div>
-        
-        <div class="mb-1 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Terms & Conditions</label>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
-      </form></div>
-      <div class="text-center d-none">
-    <div class="dropdown my-3 ">
-  
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Please select
+
+        <div class="mb-3">
+          <input
+            type="checkbox"
+            class="me-4"
+            formControlName="iAgreeToTnC"
+            id="in-check"
+          /><label for="in-check" class="me-1">I agree to our</label
+          ><a class="terms"> Terms of Services</a
+          ><label class="mx-1"> and </label><a class="terms">Privacy Policy</a>
+        </div>
+        <div class="mb-3">
+          <button type="button" class="log-in">Save</button>
+        </div>
+        <div class="mb-3 text-center">
+          <label for="in-check" class="me-1">Already registered? </label
+          ><a routerLink="/login" class="terms">Log In</a>
+        </div>
+      </form>
+    </div>
+
+    <form class="d-none">
+      <div class="mb-1">
+        <input
+          type="number"
+          class="input"
+          id="exampleInputEmail1"
+          placeholder="Your Mobile No."
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-1">
+        <input
+          type="date"
+          class="input"
+          id="exampleInputPassword1"
+          placeholder="Your date of birth"
+          name="dob"
+          onfocus="(this.type='date')"
+          style="border: none"
+        />
+      </div>
+      <div class="mb-1">
+        <input
+          type="text"
+          class="input"
+          placeholder="Your place of birth"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-1">
+        <input
+          type="text"
+          class="input"
+          placeholder="Address"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-1">
+        <select class="input" aria-label="Default select example">
+          <option selected>Your Gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="3">Other</option>
+        </select>
+      </div>
+      <div class="mb-1">
+        <select class="input" aria-label="Default select example">
+          <option selected>Do you belong to below poverty line category</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+      <div class="mb-1">
+        <select class="input" aria-label="Default select example">
+          <option selected>
+            Do you belong to the underprivileged category
+          </option>
+
+          <option value="2">Yes</option>
+          <option value="3">No</option>
+        </select>
+      </div>
+      <div class="mb-1">
+        <select class="input" aria-label="Default select example">
+          <option selected>Do you want to register as a</option>
+          <option value="1">Advocate</option>
+          <option value="2">Client</option>
+          <option value="3">College</option>
+          <option value="4">Customer</option>
+          <option value="5">Doctor</option>
+          <option value="6">Hospital</option>
+          <option value="7">Institute</option>
+          <option value="8">Manager</option>
+          <option value="9">Mobilizer</option>
+          <option value="10">NGO</option>
+          <option value="11">School</option>
+          <option value="12">Supplier</option>
+          <option value="13">Student</option>
+          <option value="14">Teacher</option>
+          <option value="15">University</option>
+        </select>
+      </div>
+      <div class="dropdown my-3 d-none">
+        <p></p>
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Please select
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" >Advocate</a></li>
-          <li><a class="dropdown-item" >Client</a></li>
-          <li><a class="dropdown-item" >College</a></li>
-          <li><a class="dropdown-item" >Customer</a></li>
-          <li><a class="dropdown-item" >Doctor</a></li>
-          <li><a class="dropdown-item" >Hospital</a></li>
-          <li><a class="dropdown-item" >Institute</a></li>
-          <li><a class="dropdown-item" >NGO</a></li>
-          <li><a class="dropdown-item" >School</a></li>
-          <li><a class="dropdown-item" >Supplier</a></li>
-          <li><a class="dropdown-item" >Student</a></li>
-          <li><a class="dropdown-item" >Teacher</a></li>
-          <li><a class="dropdown-item" >University</a></li>
-          <li><a class="dropdown-item" >Manager</a></li>
-          <li><a class="dropdown-item" >Mobilizer</a></li>
-          
+          <li><a class="dropdown-item">Advocate</a></li>
+          <li><a class="dropdown-item">Client</a></li>
+          <li><a class="dropdown-item">College</a></li>
+          <li><a class="dropdown-item">Customer</a></li>
+          <li><a class="dropdown-item">Doctor</a></li>
+          <li><a class="dropdown-item">Hospital</a></li>
+          <li><a class="dropdown-item">Institute</a></li>
+          <li><a class="dropdown-item">Manager</a></li>
+          <li><a class="dropdown-item">Mobilizer</a></li>
+          <li><a class="dropdown-item">NGO</a></li>
+          <li><a class="dropdown-item">School</a></li>
+          <li><a class="dropdown-item">Supplier</a></li>
+          <li><a class="dropdown-item">Student</a></li>
+          <li><a class="dropdown-item">Teacher</a></li>
+          <li><a class="dropdown-item">University</a></li>
         </ul>
-      </div></div>
+      </div>
+
+      <div class="mb-1 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1"
+          >Terms & Conditions</label
+        >
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
   </div>
+  <div class="text-center d-none">
+    <div class="dropdown my-3">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Please select
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item">Advocate</a></li>
+        <li><a class="dropdown-item">Client</a></li>
+        <li><a class="dropdown-item">College</a></li>
+        <li><a class="dropdown-item">Customer</a></li>
+        <li><a class="dropdown-item">Doctor</a></li>
+        <li><a class="dropdown-item">Hospital</a></li>
+        <li><a class="dropdown-item">Institute</a></li>
+        <li><a class="dropdown-item">NGO</a></li>
+        <li><a class="dropdown-item">School</a></li>
+        <li><a class="dropdown-item">Supplier</a></li>
+        <li><a class="dropdown-item">Student</a></li>
+        <li><a class="dropdown-item">Teacher</a></li>
+        <li><a class="dropdown-item">University</a></li>
+        <li><a class="dropdown-item">Manager</a></li>
+        <li><a class="dropdown-item">Mobilizer</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
