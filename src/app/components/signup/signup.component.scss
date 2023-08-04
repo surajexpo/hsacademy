@@ -1,0 +1,50 @@
+nav {
+    color: #f4f9e9;
+    background-color: #191919;
+  }
+  .navbar-brand{
+      font-size: 2.5rem;
+      color: #FF9933;
+      cursor: pointer;
+  }
+  .search-btn{
+      color: #FFF;
+      border: 1px solid #FFF;
+      background-color: #FF9933;
+  }
+  .general-form{
+    width: 50%;
+    margin: auto;
+  }
+  .input{
+    background-color: #191919;
+    color: #f4f9e9;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+    line-height: 1.5;
+
+background-clip: padding-box;
+border-radius: 0.25rem;
+transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+font-weight: 200;
+font-size: 18px;
+  }
+  .files input:focus{     outline: 2px dashed #fff;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #fff;
+ }
+  @media screen and (max-width: 576px) {
+    .general-form{
+      width:80%;
+    }
+    .navbar>.container-fluid{
+        justify-content: center !important;
+      }
+  }
+
+
+
+  

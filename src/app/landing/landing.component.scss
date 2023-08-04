@@ -1,0 +1,34 @@
+nav {
+  color: #f4f9e9;
+  background-color: #191919;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    color: #FF9933;
+    cursor: pointer;
+}
+.search-btn{
+    color: #FFF;
+    border: 1px solid #FFF;
+    background-color: #FF9933;
+}
+.box{
+border-radius: 10px;
+padding: 0.5rem;
+text-align: center;
+box-shadow: 0px 0px 9px 1px  #FF9933;
+min-height: 13rem;
+height: 100%;
+max-height: auto;
+text-overflow: ellipsis;
+}
+.vision{
+    color: #fff;
+    font-weight: bold; 
+    cursor: pointer;
+}
+@media screen and (max-width: 576px) {
+    .navbar>.container-fluid{
+      justify-content: center !important;
+    }
+  }
