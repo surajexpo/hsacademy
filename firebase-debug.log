@@ -64,3 +64,4 @@ Before we get started, keep in mind:
 [info] 
 [info] ✔  Success! Logged into GitHub as surajexpo 
 [info] 
+[debug] [2023-08-06T15:45:13.001Z] >>> [apiv2][query] GET https://api.github.com/repos/surajexpo/hsacademy/actions/secrets/public-key type=owner
