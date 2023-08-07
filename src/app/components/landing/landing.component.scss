@@ -10,11 +10,16 @@ nav {
 .search-btn{
     color: #FFF;
     border: 1px solid #FFF;
+    border-radius: 0px 5px 5px 0px;
     background-color: #FF9933;
+}
+.form-control{
+  border-radius: 5px 0px 0px 5px !important;
 }
 .cursor-pointer{
   cursor: pointer;
 }
+
 .box{
 border-radius: 10px;
 padding: 0.5rem;
@@ -24,6 +29,9 @@ min-height: 13rem;
 height: 100%;
 max-height: auto;
 text-overflow: ellipsis;
+}
+.box h3{
+  color: #FF9933;
 }
 .vision{
     color: #fff;
