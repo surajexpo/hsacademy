@@ -12,6 +12,15 @@ nav {
       border: 1px solid #FFF;
       background-color: #FF9933;
   }
+  .vision{
+    color: #fff;
+    font-weight: bold; 
+    cursor: pointer;
+}
+.education{
+  color: #FF9933;
+  font-weight: bold;
+}
 @media screen and (max-width: 576px) {
     .navbar>.container-fluid{
       justify-content: center !important;

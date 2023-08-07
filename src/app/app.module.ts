@@ -4,7 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
-import {AngularFireModule} from '@angular/fire/compat';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -20,7 +21,10 @@ import { SignupComponent } from './components/signup/signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    
+    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
+    provideFirestore(()=>getFirestore()),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

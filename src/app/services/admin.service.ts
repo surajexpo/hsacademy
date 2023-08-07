@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Injectable } from "@angular/core";
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@angular/fire/auth'
 import { Router } from '@angular/router';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -8,6 +9,9 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export class AdminService {
 
   constructor(private fireauth:AngularFireAuth,private router:Router) { }
+
+
+
   login(email:string, password:string){
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
       localStorage.setItem('token','true');
