@@ -1,6 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import 'firebase/auth';
 export const environment = {
 production: false,
   firebaseConfig : {
@@ -14,5 +15,4 @@ production: false,
 }
 };
 // Initialize Firebase
-const app = initializeApp(environment.firebaseConfig);
-
+initializeApp(environment.firebaseConfig);
