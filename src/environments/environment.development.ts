@@ -14,4 +14,4 @@ production: false,
 }
 };
 // Initialize Firebase
-const app = initializeApp(environment.firebaseConfig);
+initializeApp(environment.firebaseConfig);

@@ -9,7 +9,10 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.development';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-
+import { WindowService } from './services/window.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +24,11 @@ import { SignupComponent } from './components/signup/signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
-    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
-    provideFirestore(()=>getFirestore()),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
 
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

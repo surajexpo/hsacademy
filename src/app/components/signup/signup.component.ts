@@ -1,48 +1,44 @@
 import { Component } from "@angular/core";
-import { getAuth, RecaptchaVerifier } from "firebase/auth";
+import { environment } from "src/environments/environment";
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber  } from "firebase/auth";
 import { WindowService } from "src/app/services/window.service";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
   styleUrls: ["./signup.component.scss"],
 })
+
 export class SignupComponent {
+  
   windowRef: any = "";
   constructor(
     private windowService: WindowService,
-    public afAuth: AngularFireAuth
-  ) {
-    this.windowRef = this.windowService.windowRef;
-  }
+    private afAuth: AngularFireAuth
+  ) {}
   auth = getAuth();
   ngOnInit(): void {
-    try {
-      this.windowRef.recaptchaVerifier = new RecaptchaVerifier(
-        this.auth,
-        "sign-in-button",
-        {
-         
-          size: "visible",
-          callback: (response: any) => {
-            console.log('captcha load ho gya re',response);
-          },
-        }
-      );
-      this.windowRef.recaptchaVerifier.render();
-    } catch (e) {
-      console.log(
-        "There was a problem in initializing the recapctha verifier: " + e
-      );
-    }
+    this.windowRef = this.windowService.windowRef;
+    this.windowRef.recaptchaVerifier = new RecaptchaVerifier(this.auth,'recaptcha-verifier', {
+      'size': 'normal',
+      'callback': (response:any) => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        console.log(response)
+        // ...
+      },
+      'expired-callback': () => {
+        // Response expired. Ask user to solve reCAPTCHA again.
+        // ...
+      }
+    });
+    this.windowRef.recaptchaVerifier.render()
+    
   }
-  phoneNumber = "+918218089943";
+  phoneNumber = "+918384874024";
   sendOtp() {
     console.log('chala re');
-    firebase.auth().signInWithPhoneNumber(
+    signInWithPhoneNumber(this.auth,
       this.phoneNumber,
       this.windowRef.recaptchaVerifier
     )
@@ -56,6 +52,7 @@ export class SignupComponent {
       .catch((error: any) => {
         // Error; SMS not sent
         // ...
+        console.log(error)
       });
-  }
+}
 }
