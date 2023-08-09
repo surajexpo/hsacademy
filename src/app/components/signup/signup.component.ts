@@ -35,7 +35,7 @@ export class SignupComponent {
     this.windowRef.recaptchaVerifier.render()
     
   }
-  phoneNumber = "+918384874024";
+  phoneNumber = "+918218089943";
   sendOtp() {
     console.log('chala re');
     signInWithPhoneNumber(this.auth,
