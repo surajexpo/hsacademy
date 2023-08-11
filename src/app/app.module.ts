@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,20 +14,28 @@ import { WindowService } from './services/window.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
+import { PersonalPageComponent } from './components/personal-page/personal-page.component';
+import { provideAuth } from '@angular/fire/auth';
+import { getAuth } from 'firebase/auth';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     CourseDetailsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PersonalPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
     AngularFireAuthModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+ 
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]
