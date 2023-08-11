@@ -28,7 +28,7 @@
       <div class="text-center">
         <h1 class="text-white">REGISTER</h1>
       </div>
-      <div>
+      <div class="step1  d-none">
         <form class="px-3" [formGroup]="registerForm">
           <div class="mb-3">
             <div class="text-center ms-3 f-label">
@@ -106,10 +106,23 @@
               </select>
             </div>
           </div>
+<div class="mb-3">
+  <label for="" class="small-font">
+    Please upload the documents. You may get your data verified by any Manager (or Director) of Ceekul Academy whenever
+     you wish. If you don't have a mobile number or any ID Proof then pl get the video of your visual identity verified by her/him.
+  </label>
+</div>
+<div class="mb-3">
+  <div class="text-fields d-flex align-items-center justify-content-center  px-3">
+    <label for="upload" class="terms" >Upload</label>
+    <input type="file" class="d-none" id="upload">
+  </div>
+</div>
+
           <!-- <div id="recaptcha-verifier" class="mb-3"></div> -->
           <div class="mb-3">
-              <label class="mx-1"> Please read the</label
-              ><a class="terms"> self regulatory framework :</a>
+              <label class="mx-1 small-font">Please read the</label
+              ><a class="terms small-font"> self regulatory framework</a>
           </div>
           <div class="mb-3 d-flex">
             <input
@@ -117,7 +130,7 @@
               class="me-3 "
               formControlName="iAgreeToTnC"
               id="in-check"
-            /><label for="in-check" class="me-1">I agree with the self regulatory framework.</label
+            /><label for="in-check" class="me-1 small-font">I agree with the self regulatory framework.</label
             >
           </div>
           <div class="mb-3">
@@ -126,12 +139,12 @@
             </button>
           </div>
           <div class="mb-3 text-center">
-            <label for="in-check" class="me-1">Already registered? </label
+            <label for="in-check" class="me-1 small-font">Already registered? </label
             ><a routerLink="/login" class="terms">Log In</a>
           </div>
         </form>
       </div>
-<div class="otp d-none">
+<div class="otp">
     <form class="px-3" >
       <div class="mb-3">
         <div class="text-center ms-3 f-label">

@@ -32,7 +32,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .login {
   height: auto;
-  // background-color: #000000eb;
   color: white;
 }
 .text-fields {
@@ -104,12 +103,12 @@ input[type="checkbox"]:checked:after {
   left: 6px;
 }
 .terms {
-  color: #617883;
+  color:  #FF9933;
   text-decoration: none;
   cursor: pointer;
 }
 .log-in {
-  background-color: #7a98a6;
+  background-color: #FF9933;
   color: #ffff;
   width: 100%;
   height: 4rem;
@@ -157,6 +156,9 @@ input[type="checkbox"]:checked:after {
 }
   .general-form{
     width:80%;
+  }
+  .f-label label, .small-font{
+    font-size: small;
   }
  
 }
