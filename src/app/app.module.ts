@@ -15,8 +15,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { PersonalPageComponent } from './components/personal-page/personal-page.component';
-import { provideAuth } from '@angular/fire/auth';
-import { getAuth } from 'firebase/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +27,11 @@ import { getAuth } from 'firebase/auth';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth()),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
- 
+
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]

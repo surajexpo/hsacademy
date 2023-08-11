@@ -87,7 +87,7 @@ export class SignupComponent {
       .then((res: any) => {
         try {
           console.log("you entered ", this.otp);
-          this.user_service.addUser(res.id);
+         
         } catch (e) {
           console.log(e);
         }

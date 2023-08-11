@@ -106,17 +106,19 @@
               </select>
             </div>
           </div>
-          <div id="recaptcha-verifier"></div>
+          <!-- <div id="recaptcha-verifier" class="mb-3"></div> -->
           <div class="mb-3">
+              <label class="mx-1"> Please read the</label
+              ><a class="terms"> self regulatory framework :</a>
+          </div>
+          <div class="mb-3 d-flex">
             <input
               type="checkbox"
-              class="me-4"
+              class="me-3 "
               formControlName="iAgreeToTnC"
               id="in-check"
-            /><label for="in-check" class="me-1">I agree to our</label
-            ><a class="terms"> Terms of Services</a
-            ><label class="mx-1"> and </label
-            ><a class="terms">Privacy Policy</a>
+            /><label for="in-check" class="me-1">I agree with the self regulatory framework.</label
+            >
           </div>
           <div class="mb-3">
             <button type="button" (click)="sendOtp()" class="log-in">
@@ -129,7 +131,7 @@
           </div>
         </form>
       </div>
-<div class="otp">
+<div class="otp d-none">
     <form class="px-3" >
       <div class="mb-3">
         <div class="text-center ms-3 f-label">
