@@ -4,6 +4,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { PersonalPageComponent } from './components/personal-page/personal-page.component';
 const routes: Routes = [
   {
     path:'',
@@ -14,8 +15,8 @@ const routes: Routes = [
     component:CourseDetailsComponent
   },
   {
-    path:'course-detail',
-    component:CourseDetailsComponent
+    path:'personal-page',
+    component:PersonalPageComponent
   },
   {
     path:'signup',

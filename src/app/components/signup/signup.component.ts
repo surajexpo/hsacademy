@@ -5,9 +5,14 @@ import {
   signInWithPhoneNumber,
 } from "firebase/auth";
 import { WindowService } from "src/app/services/window.service";
-import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  MatSnackBarModule,
+} from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
@@ -15,12 +20,16 @@ import { UserService } from "src/app/services/user.service";
 })
 export class SignupComponent {
   otp: any = "";
+  step1: string = "block";
+  step2: string = "none";
   windowRef: any = "";
   otpMsg: string = "";
+  phoneNumber: any = "+91";
   constructor(
     private windowService: WindowService,
-    private afAuth: AngularFireAuth,
-    private user_service: UserService
+    private user_service: UserService,
+    private snack: MatSnackBar,
+    private router:Router,
   ) {}
   auth = getAuth();
   ngOnInit(): void {
@@ -49,8 +58,6 @@ export class SignupComponent {
     );
     this.windowRef.recaptchaVerifier.render();
   }
-  phoneNumber = "+918218089943";
-
   registerForm = new FormGroup({
     mobileNo: new FormControl("", [
       Validators.minLength(10),
@@ -63,11 +70,14 @@ export class SignupComponent {
     gender: new FormControl("", Validators.required),
     belowpoverty: new FormControl(false),
     underprivileged: new FormControl(false),
-    document: new FormControl("", Validators.required),
+    document: new FormControl(""),
     iAgreeToTnC: new FormControl(false),
   });
   sendOtp() {
-    console.log("form values", this.registerForm.value);
+   
+    this.phoneNumber =
+      this.phoneNumber + this.registerForm.controls["mobileNo"].value;
+    console.log("phone number", this.phoneNumber);
     signInWithPhoneNumber(
       this.auth,
       this.phoneNumber,
@@ -76,6 +86,13 @@ export class SignupComponent {
       .then((confirmationResult: any) => {
         console.log("kuchh aya re", confirmationResult);
         this.windowRef.confirmationResult = confirmationResult;
+        this.snack.open("OTP has been sent on your mobile number", "ok", {
+          horizontalPosition: "right",
+          verticalPosition: "top",
+          duration: 2000,
+        });
+        this.step1 = "none";
+        this.step2 = "block";
       })
       .catch((error: any) => {
         console.log(error);
@@ -86,14 +103,31 @@ export class SignupComponent {
       .confirm(this.otp)
       .then((res: any) => {
         try {
-          console.log("you entered ", this.otp);
-         
+          console.log("response  ", res);
+          this.user_service
+            .addUser(this.registerForm.value)
+            .then((res) => {
+              this.snack.open("Register successfull", "ok", {
+                horizontalPosition: "right",
+                verticalPosition: "top",
+                duration: 2000,
+              }); 
+              this.router.navigate(['/personal-page']);
+            })
+            .catch((error: any) => {
+              console.log("add user catch", error);
+            });
         } catch (e) {
           console.log(e);
         }
       })
       .catch((error: any) => {
         (this.otpMsg = "incorrect OTP"), error;
+        this.snack.open("Incorrect OTP", "ok", {
+          horizontalPosition: "right",
+          verticalPosition: "top",
+          duration: 2000,
+        }); 
         console.log(error);
       });
   }

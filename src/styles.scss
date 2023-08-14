@@ -6,3 +6,10 @@ body{
     font-weight: 400;
     line-height: 135%;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    .mat-mdc-progress-spinner.mat-warn {
+        --mdc-circular-progress-active-indicator-color: #FF9933;
+        width: 50px;
+        height: 50px;
+        }

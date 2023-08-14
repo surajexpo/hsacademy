@@ -1,0 +1,26 @@
+nav {
+    color: #f4f9e9;
+    background-color: #191919;
+  }
+  .navbar-brand{
+      font-size: 2.5rem;
+      color: #FF9933;
+      cursor: pointer;
+  }
+  .search-btn{
+      color: #FFF;
+      border: 1px solid #FFF;
+      border-radius: 0px 5px 5px 0px;
+      background-color: #FF9933;
+  }
+  .form-control{
+    border-radius: 5px 0px 0px 5px !important;
+  }
+  @media screen and (max-width: 576px) {
+    .navbar>.container-fluid{
+      justify-content: center !important;
+    }
+    .logo{
+      margin-bottom: 1.5rem;
+    }
+  }
