@@ -23,20 +23,33 @@ export class SignupComponent {
   step1: string = "block";
   step2: string = "none";
   windowRef: any = "";
-  otpMsg: string = "";
   phoneNumber: any = "+91";
+  collectionCount:number=0;
   constructor(
     private windowService: WindowService,
     private user_service: UserService,
     private snack: MatSnackBar,
-    private router:Router,
+    private router: Router
   ) {}
   auth = getAuth();
   ngOnInit(): void {
-    this.loadCaptcha();
+        this.loadCaptcha();
+      
   }
   get getControl() {
     return this.registerForm.controls;
+  }
+ async getCollectionCount(){
+   this.user_service
+      .getUserCollection()
+      .then((res) => {
+        console.log("res ", res.data().count);
+       this.collectionCount=res.data().count
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
+
   }
   loadCaptcha() {
     this.windowRef = this.windowService.windowRef;
@@ -59,12 +72,15 @@ export class SignupComponent {
     this.windowRef.recaptchaVerifier.render();
   }
   registerForm = new FormGroup({
+
     mobileNo: new FormControl("", [
       Validators.minLength(10),
       Validators.pattern("^[0-9]*$"),
       Validators.required,
     ]),
     dob: new FormControl("", Validators.required),
+    uid: new FormControl("", Validators.required),
+    hsa_id: new FormControl("", Validators.required),
     placeofbirth: new FormControl("", Validators.required),
     identity: new FormControl("", Validators.required),
     gender: new FormControl("", Validators.required),
@@ -74,9 +90,8 @@ export class SignupComponent {
     iAgreeToTnC: new FormControl(false),
   });
   sendOtp() {
-   
     this.phoneNumber =
-      this.phoneNumber + this.registerForm.controls["mobileNo"].value;
+    this.phoneNumber + this.registerForm.controls["mobileNo"].value;
     console.log("phone number", this.phoneNumber);
     signInWithPhoneNumber(
       this.auth,
@@ -98,12 +113,20 @@ export class SignupComponent {
         console.log(error);
       });
   }
-  verifyOTP() {
+ async verifyOTP() {
+ await this.getCollectionCount();
     this.windowRef.confirmationResult
       .confirm(this.otp)
       .then((res: any) => {
         try {
-          console.log("response  ", res);
+          console.log("response  ", res.user.uid);
+       
+          this.registerForm.controls['uid'].setValue(res.user.uid);
+          let hsaId=100000000000+this.collectionCount+1;
+          this.registerForm.controls['hsa_id'].setValue('HSA'+hsaId);
+          console.log('collection cout',this.collectionCount);
+          console.log('hsaId cout',hsaId);
+          console.log('register form',this.registerForm.value);
           this.user_service
             .addUser(this.registerForm.value)
             .then((res) => {
@@ -111,8 +134,8 @@ export class SignupComponent {
                 horizontalPosition: "right",
                 verticalPosition: "top",
                 duration: 2000,
-              }); 
-              this.router.navigate(['/personal-page']);
+              });
+              this.router.navigate(["/personal-page"]);
             })
             .catch((error: any) => {
               console.log("add user catch", error);
@@ -122,12 +145,11 @@ export class SignupComponent {
         }
       })
       .catch((error: any) => {
-        (this.otpMsg = "incorrect OTP"), error;
         this.snack.open("Incorrect OTP", "ok", {
           horizontalPosition: "right",
           verticalPosition: "top",
           duration: 2000,
-        }); 
+        });
         console.log(error);
       });
   }

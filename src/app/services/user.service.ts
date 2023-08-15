@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { getFirestore, collection, doc, setDoc,getDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, setDoc,getDoc, getCountFromServer, where,query, getDocs } from "firebase/firestore";
 import "firebase/firestore";
 @Injectable({
   providedIn: "root",
@@ -15,6 +15,11 @@ export class UserService {
     return await getDoc(doc(this.usersCol));
   }
   async getlUser(id: string) {
-    return await getDoc(doc(this.usersCol,id));
+    const q = query(this.usersCol, where("uid", "==", id));
+    return await getDocs(q);
   }
+  async getUserCollection() {
+    return await getCountFromServer(this.usersCol);
+  }
+ 
 }
