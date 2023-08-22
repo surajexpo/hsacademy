@@ -15,6 +15,7 @@ export class PersonalPageComponent {
   ){}
 auth=getAuth();
 userData:any=[];
+formValue:string='';
 ngOnInit(): void {
   this.getUser();
 }
@@ -33,5 +34,8 @@ getUser(){
     });
   })
   console.log('user Data',this.userData);
+}
+openForm(data:any){
+  console.log('mai chal gya',data.target.value);
 }
 }
