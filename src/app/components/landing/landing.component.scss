@@ -1,24 +1,73 @@
-
-.cursor-pointer{
+.main-section {
+  background-image: url("../../../assets/images/hand-by-ai.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  opacity: 0.6;
+  
+}
+.title{
+  color: #FFFFFF;
+font-family: "OldSchool Grotesk", Sans-serif;
+font-size: 58px;
+font-weight: 700;
+text-transform: capitalize;
+line-height: 80px;
+letter-spacing: 0.5px;
+}
+.cursor-pointer {
   cursor: pointer;
 }
-
-.box{
-border-radius: 10px;
-padding: 0.5rem;
-text-align: center;
-box-shadow: 0px 0px 9px 1px  #FF9933;
-min-height: 13rem;
-height: 100%;
-max-height: auto;
-text-overflow: ellipsis;
+.overflow-hidden {
+  overflow: hidden;
 }
-.box h3{
-  color: #FF9933;
+.ceekul-height{
+  margin-top: 10px;
+  border-radius: 10px;
+  min-height: 14rem;
+  height: 100%;
+  box-shadow: 0 0 9px 1px #ff9933;
 }
-.vision{
-    color: #fff;
-    font-weight: bold; 
-    cursor: pointer;
+.vision-mission{
+  background-color: #191919;
 }
-
+.box {
+  border-radius: 10px 10px 0 0;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 2px solid #ff9933;
+  min-height: 13rem;
+  height: 100%;
+  max-height: auto;
+  text-overflow: ellipsis;
+  background-color: #143462;
+}
+.box h3 {
+  color: #ff9933;
+}
+.vision {
+  
+  font-weight: bold;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .main-section {
+    width: 100%;
+    
+  }
+  
+}
+@media screen and (max-width: 576px) {
+  .main-section {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+  }
+  .title{
+    font-size: 28px;
+line-height: 39.2px;
+  }
+}

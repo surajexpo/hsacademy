@@ -1,0 +1,121 @@
+.ceekul-main-background-color ,.ceekul-main-before a::before , .ceekul-main-before a::after ,.ceekul-main-active.active , .ceekul-main-dots .owl-dot.active span ,.ceekul-main-hover-background-color:hover{
+    background-color: #2C3E4F !important;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.focus-input input:focus , .focus-input textarea{
+    box-shadow: none !important;    
+ }
+ .logo{
+    height: 65px;
+    width: auto;
+ }
+  .focus-input-white input:focus , .focus-input-white textarea:focus
+ ,.focus-input-white input       , .focus-input-white textarea{
+     color: #fff;
+ }
+ .focus-input input:focus ~ label , .focus-input textarea:focus ~ label,
+ .focus-input input:valid ~ label , .focus-input textarea:valid ~ label{
+    top: -18px;
+ }
+ .focus-input label {
+     position: absolute;
+     top:10px;
+     transition: all ease-in-out .3s;
+     -o-transition: all ease-in-out .3s;
+     -webkit-transition: all ease-in-out .3s;
+     -moz-transition: all ease-in-out .3s;
+     margin: 0;
+     font-size: 16px;
+     pointer-events: none;
+ }
+ .ceekul-contact-hover-input:focus{
+     background-color: transparent;
+     border-color: inherit;
+     outline: 0;
+     box-shadow: none;
+ }
+ .ceekul-contact-hover-input { 
+    border-radius: 0;
+    background-color: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-width: 1px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 0;
+    transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+}
+ .form-control:focus { 
+    background-color: transparent;
+    border-color: rgba(229, 77, 66, 1); 
+    box-shadow: none;
+}
+.ceekul-contact-hover-input:focus ~ label{
+    bottom: 25px;  
+    color: #E54D42; 
+}
+.ceekul-forth-border-color{
+    border-color: #5C6A77;
+}
+.ceekul-second-background-color ,.ceekul-second-before::before , .ceekul-second-before::after ,.ceekul-second-hover-background-color:hover ,.ceekul-second-active.active , .ceekul-second-dots .owl-dot.active span{
+    background-color: #E54D42 !important;
+    transition: all ease-in-out .3s;
+}
+.copyright {
+    text-align: center; 
+    font-weight: 400;
+    font-size: 14px;
+    padding: 20px 0; 
+}
+.copyright p {
+    color:inherit;
+}
+.ceekul-copyright-links{
+    display: inline-block;
+}
+.ceekul-copyright-links-item {
+    display: inline-block;
+}
+.ceekul-copyright-links-link {
+    color:  inherit;
+    margin: 0 3px;
+}
+.ceekul-copyright-links-link:hover {
+    color: inherit;
+}
+.ceekul-copyright-links-link:before {
+    content: " . ";
+    margin: 0 10px; 
+}
+.ceekul-main-background-color ,.ceekul-main-before a::before , .ceekul-main-before a::after ,.ceekul-main-active.active , .ceekul-main-dots .owl-dot.active span ,.ceekul-main-hover-background-color:hover{
+    background-color: #2C3E4F !important;
+}
+/* start ceekul footer 4 */
+.ceekul-footer-social-links a{
+    color: inherit; 
+    display: block;
+    margin-right: 15px;
+    font-size: 22px;
+}
+.ceekul-footer-links li{
+    width: 100%;
+}
+.ceekul-footer-links li a{
+    color: inherit; 
+    font-size: 14px;
+}
+.ceekul-footer-links li a:before{
+    content: "- ";
+}
+.ceekul-light-footer-links {
+    margin-top: 0 !important;
+    margin-bottom: 6px;
+}
