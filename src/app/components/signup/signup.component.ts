@@ -12,8 +12,7 @@ import {
   MatSnackBarRef,
   MatSnackBarModule,
 } from "@angular/material/snack-bar";
-import * as logger  
-    from "../../../assets/JS/logger" 
+import * as logger from "../../../assets/JS/logger";
 import { Router } from "@angular/router";
 @Component({
   selector: "app-signup",
@@ -22,11 +21,14 @@ import { Router } from "@angular/router";
 })
 export class SignupComponent {
   otp: any = "";
+
   step1: string = "block";
   step2: string = "none";
+  isManager: string = "none";
+
   windowRef: any = "";
   phoneNumber: any = "+91";
-  collectionCount:number=0;
+  collectionCount: number = 0;
   constructor(
     private windowService: WindowService,
     private user_service: UserService,
@@ -35,24 +37,29 @@ export class SignupComponent {
   ) {}
   auth = getAuth();
   ngOnInit(): void {
-        this.loadCaptcha();
-        logger.sendStateDistrict();
-      
+    this.loadCaptcha();
+    logger.sendStateDistrict();
   }
   get getControl() {
     return this.registerForm.controls;
   }
- async getCollectionCount(){
-   this.user_service
+  becomeManager() {
+    if (this.registerForm.controls["isManager"].value) {
+      this.isManager = "block";
+    } else this.isManager = "none";
+    this.registerForm.controls["state"].setValue("");
+    this.registerForm.controls["district"].setValue("");
+  }
+  async getCollectionCount() {
+    this.user_service
       .getUserCollection()
       .then((res) => {
         console.log("res ", res.data().count);
-       this.collectionCount=res.data().count
+        this.collectionCount = res.data().count;
       })
       .catch((error) => {
         console.log("something went wrong", error);
       });
-
   }
   loadCaptcha() {
     this.windowRef = this.windowService.windowRef;
@@ -75,7 +82,6 @@ export class SignupComponent {
     this.windowRef.recaptchaVerifier.render();
   }
   registerForm = new FormGroup({
-
     mobileNo: new FormControl("", [
       Validators.minLength(10),
       Validators.pattern("^[0-9]*$"),
@@ -87,15 +93,16 @@ export class SignupComponent {
     name: new FormControl("", Validators.required),
     state: new FormControl("", Validators.required),
     district: new FormControl("", Validators.required),
-    gender: new FormControl("Select Your Gender", Validators.required),
-    belowpoverty: new FormControl(false),
-    
+    gender: new FormControl("", Validators.required),
+    belowpoverty: new FormControl("", Validators.required),
+
     iAgreeToTnC: new FormControl(false),
     isManager: new FormControl(false),
   });
   sendOtp() {
+    console.log("form data", this.registerForm.value);
     this.phoneNumber =
-    this.phoneNumber + this.registerForm.controls["mobileNo"].value;
+      this.phoneNumber + this.registerForm.controls["mobileNo"].value;
     console.log("phone number", this.phoneNumber);
     signInWithPhoneNumber(
       this.auth,
@@ -117,20 +124,20 @@ export class SignupComponent {
         console.log(error);
       });
   }
- async verifyOTP() {
- await this.getCollectionCount();
+  async verifyOTP() {
+    await this.getCollectionCount();
     this.windowRef.confirmationResult
       .confirm(this.otp)
       .then((res: any) => {
         try {
           console.log("response  ", res.user.uid);
-       
-          this.registerForm.controls['uid'].setValue(res.user.uid);
-          let hsaId=100000000000+this.collectionCount+1;
-          this.registerForm.controls['hsa_id'].setValue('HSA'+hsaId);
-          console.log('collection cout',this.collectionCount);
-          console.log('hsaId cout',hsaId);
-          console.log('register form',this.registerForm.value);
+
+          this.registerForm.controls["uid"].setValue(res.user.uid);
+          let hsaId = 100000000000 + this.collectionCount + 1;
+          this.registerForm.controls["hsa_id"].setValue("HSA" + hsaId);
+          console.log("collection cout", this.collectionCount);
+          console.log("hsaId cout", hsaId);
+          console.log("register form", this.registerForm.value);
           this.user_service
             .addUser(this.registerForm.value)
             .then((res) => {
