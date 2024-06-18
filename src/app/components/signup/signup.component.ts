@@ -12,8 +12,9 @@ import {
   MatSnackBarRef,
   MatSnackBarModule,
 } from "@angular/material/snack-bar";
+import * as logger  
+    from "../../../assets/JS/logger" 
 import { Router } from "@angular/router";
-
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
@@ -35,6 +36,7 @@ export class SignupComponent {
   auth = getAuth();
   ngOnInit(): void {
         this.loadCaptcha();
+        logger.sendStateDistrict();
       
   }
   get getControl() {
@@ -82,13 +84,14 @@ export class SignupComponent {
     dob: new FormControl("", Validators.required),
     uid: new FormControl("", Validators.required),
     hsa_id: new FormControl("", Validators.required),
-    placeofbirth: new FormControl("", Validators.required),
-    identity: new FormControl("", Validators.required),
-    gender: new FormControl("", Validators.required),
+    name: new FormControl("", Validators.required),
+    state: new FormControl("", Validators.required),
+    district: new FormControl("", Validators.required),
+    gender: new FormControl("Select Your Gender", Validators.required),
     belowpoverty: new FormControl(false),
-    underprivileged: new FormControl(false),
-    document: new FormControl(""),
+    
     iAgreeToTnC: new FormControl(false),
+    isManager: new FormControl(false),
   });
   sendOtp() {
     this.phoneNumber =

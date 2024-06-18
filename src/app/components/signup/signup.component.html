@@ -1,64 +1,58 @@
 <div class="bg-color">
 
-<app-navbar></app-navbar>
-<div class="container mt-3">
-  <div class="general-form">
-    <div class="login rounded py-2">
-      <div class="text-center">
-        <h1 class="text-white">REGISTER</h1>
-      </div>
-      <div class="step1" [ngStyle]="{'display':step1}">
-        <form class="px-3" [formGroup]="registerForm">
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label>Mobile No.</label>
+  <app-navbar></app-navbar>
+  <div class="container mt-3">
+    <div class="general-form">
+      <div class="login rounded py-2">
+        <div class="text-center">
+          <h1 class="text-white">REGISTER</h1>
+        </div>
+        <div class="step1" [ngStyle]="{'display':step1}">
+          <form class="px-3" [formGroup]="registerForm">
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label>Mobile No.</label>
+              </div>
+              <div class="text-fields px-3">
+                <input type="text" formControlName="mobileNo" placeholder="Ex. 9876543210" required />
+              </div>
             </div>
-            <div class="text-fields px-3">
-              <input type="text" formControlName="mobileNo" placeholder="Ex. 9876543210" required />
-            </div>
-          </div>
-          <div
-            *ngIf="
+            <div *ngIf="
               getControl['mobileNo'].touched && getControl['mobileNo'].invalid
-            "
-            class="text-danger"
-          >
-            <div *ngIf="getControl['mobileNo'].errors?.['required']">
-              Mobile No. is required.
+            " class="text-danger">
+              <div *ngIf="getControl['mobileNo'].errors?.['required']">
+                Mobile No. is required.
+              </div>
+              <div *ngIf="getControl['mobileNo'].errors?.['pattern']">
+                invalid Mobile Number.
+              </div>
+              <div *ngIf="getControl['mobileNo'].errors?.['length']">
+                connot be empty.
+              </div>
             </div>
-            <div *ngIf="getControl['mobileNo'].errors?.['pattern']">
-              invalid Mobile Number.
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label>Name</label>
+              </div>
+              <div class="text-fields px-3">
+                <input type="text" placeholder="Enter Your Name" required />
+              </div>
             </div>
-            <div *ngIf="getControl['mobileNo'].errors?.['length']">
-              connot be empty.
-            </div>
-          </div>
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label>Name</label>
-            </div>
-            <div class="text-fields px-3">
-              <input type="text" placeholder="Enter Your Name" required />
-            </div>
-          </div>
 
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label>Date of Birth</label>
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label>Date of Birth</label>
+              </div>
+              <div class="text-fields px-3">
+                <input type="date" formControlName="dob" required />
+              </div>
             </div>
-            <div class="text-fields px-3">
-              <input type="date" formControlName="dob"  required />
+            <div *ngIf="getControl['dob'].touched && getControl['dob'].invalid" class="text-danger">
+              <div *ngIf="getControl['dob'].errors?.['required']">
+                Date of birth is required.
+              </div>
             </div>
-          </div>
-          <div
-            *ngIf="getControl['dob'].touched && getControl['dob'].invalid"
-            class="text-danger"
-          >
-            <div *ngIf="getControl['dob'].errors?.['required']">
-              Date of birth is required.
-            </div>
-          </div>
-          <!-- <div class="mb-3">
+            <!-- <div class="mb-3">
             <div class="text-center ms-3 f-label">
               <label>Your place of birth</label>
             </div>
@@ -77,134 +71,156 @@
               Birth place is required.
             </div>
           </div> -->
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label for="gender">Gender </label>
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label for="gender">Gender </label>
+              </div>
+              <div class="text-fields px-3">
+                <select class="f-select"  formControlName="gender" id="gender" required>
+                  <option >Select Your Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
-            <div class="text-fields px-3">
-              <select
-                class="f-select"
-               
-                formControlName="gender"
-                name="gender" id="gender"
-                required
-              >
-                <option selected>Select Your Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
+
+            
+
+            <div *ngIf="getControl['gender'].touched && getControl['gender'].invalid" class="text-danger">
+              <div *ngIf="getControl['gender'].errors?.['required']">
+                Gender is required.
+              </div>
             </div>
-          </div>
-        
-          <div
-            *ngIf="getControl['gender'].touched && getControl['gender'].invalid"
-            class="text-danger"
-          >
-            <div *ngIf="getControl['gender'].errors?.['required']">
-              Gender is required.
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label>Do you belong to below poverty line category</label>
+              </div>
+              <div class="text-fields px-3">
+                <select class="f-select" aria-label="Default select example" formControlName="belowpoverty" required>
+                  <option selected>Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label>Do you belong to below poverty line category</label>
-            </div>
-            <div class="text-fields px-3">
-              <select
-                class="f-select"
-                aria-label="Default select example"
-                formControlName="belowpoverty"
-                required
-              >
-                <option selected>Select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-          </div>
-          <div
-            *ngIf="
+            <div *ngIf="
               getControl['belowpoverty'].touched &&
               getControl['belowpoverty'].invalid
-            "
-            class="text-danger"
-          >
-            <div *ngIf="getControl['belowpoverty'].errors?.['required']">
-              Below poverty line is required.
+            " class="text-danger">
+              <div *ngIf="getControl['belowpoverty'].errors?.['required']">
+                Below poverty line is required.
+              </div>
             </div>
-          </div>
-          <div class="mb-3">
-            <label for="" class="small-font">
-              Please upload the documents. You may get your data verified by any
-              Manager (or Director) of Ceekul Academy whenever you wish. If you
-              don't have a mobile number or any ID Proof then pl get the video
-              of your visual identity verified by her/him.
-            </label>
-          </div>
-          <div class="mb-3">
-            <div
-              class="text-fields d-flex align-items-center justify-content-center px-3"
-            >
-              <label for="upload" class="terms">Upload</label>
-              <input type="file" class="d-none" id="upload" />
+           
+            <div class="mb-3 d-flex">
+              <input type="checkbox" class="me-3" formControlName="iAgreeToTnC" id="in-check" /><label for="in-check"
+                class="me-1 small-font">Do you want to become a manager</label>
             </div>
-          </div>
-  <div class="states"></div>
-          <div id="recaptcha-verifier" class="mb-3"></div>
-          <div class="mb-3">
-            <label class="mx-1 small-font">Please read the</label
-            ><a class="terms small-font"> self regulatory framework</a>
-          </div>
-          <div class="mb-3 d-flex">
-            <input
-              type="checkbox"
-              class="me-3"
-              formControlName="iAgreeToTnC"
-              id="in-check"
-            /><label for="in-check" class="me-1 small-font"
-              >I agree with the self regulatory framework.</label
-            >
-          </div>
-          <div id="sign-in-button" class="mb-3"></div>
-          <div class="mb-3">
-            <button type="button" (click)="sendOtp()" class="log-in" >
-              Send OTP
-            </button>
-            <!-- <mat-spinner color="warn" ></mat-spinner> -->
-          </div>
-          <div class="mb-3 text-center">
-            <label for="in-check" class="me-1 small-font"
-              >Already registered? </label
-            ><a routerLink="/login" class="terms">Log In</a>
-          </div>
-        </form>
-      </div>
-      <div  [ngStyle]="{'display':step2}">
-        <form class="px-3">
-          <div class="mb-3">
-            <div class="text-center ms-3 f-label">
-              <label>Enter otp</label>
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label for="inputState">State</label>
+              </div>
+              <div class="text-fields px-3">
+                <select class="f-select" aria-label="Default select example"  id="inputState"
+                  required>
+                  <option value="SelectState">Select State</option>
+                  <option value="Andra Pradesh">Andra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madya Pradesh">Madya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Orissa">Orissa</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttaranchal">Uttaranchal</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadeep">Lakshadeep</option>
+                  <option value="Pondicherry">Pondicherry</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label for="inputDistrict">Select District</label>
+              </div>
+              <div class="text-fields px-3">
+                <select class="f-select"  name="inputDistrict" id="inputDistrict" required>
+                  <option value="">-- select one -- </option>
+                </select>
+              </div>
+            </div> 
+
+
+
+      
+            <div id="recaptcha-verifier" class="mb-3"></div>
+            <div class="mb-3">
+              <label class="mx-1 small-font">Please read the</label><a class="terms small-font"> self regulatory
+                framework</a>
+            </div>
+            <div class="mb-3 d-flex">
+              <input type="checkbox" class="me-3" formControlName="iAgreeToTnC" id="in-check" /><label for="in-check"
+                class="me-1 small-font">I agree with the self regulatory framework.</label>
+            </div>
+            <div id="sign-in-button" class="mb-3"></div>
+            <div class="mb-3">
+              <button type="button" (click)="sendOtp()" class="log-in">
+                Send OTP
+              </button>
+              <!-- <mat-spinner color="warn" ></mat-spinner> -->
+            </div>
+            <div class="mb-3 text-center">
+              <label for="in-check" class="me-1 small-font">Already registered? </label><a routerLink="/login"
+                class="terms">Log In</a>
+            </div>
+          </form>
+        </div>
+        <div [ngStyle]="{'display':step2}">
+          <form class="px-3">
+            <div class="mb-3">
+              <div class="text-center ms-3 f-label">
+                <label>Enter otp</label>
+              </div>
+
+              <div class="text-fields px-3">
+                <input type="text" [(ngModel)]="otp" [ngModelOptions]="{ standalone: true }" required />
+              </div>
             </div>
 
-            <div class="text-fields px-3">
-              <input
-                type="text"
-                [(ngModel)]="otp"
-                [ngModelOptions]="{ standalone: true }"
-                required
-              />
+            <div class="mb-3">
+              <button type="button" (click)="verifyOTP()" class="log-in">
+                verify otp
+              </button>
             </div>
-          </div>
-
-          <div class="mb-3">
-            <button type="button" (click)="verifyOTP()" class="log-in">
-              verify otp
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
