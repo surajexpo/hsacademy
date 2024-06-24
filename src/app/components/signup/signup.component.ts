@@ -43,6 +43,12 @@ export class SignupComponent {
   get getControl() {
     return this.registerForm.controls;
   }
+  isBlowPoverty() {
+    if (this.registerForm.controls["belowpoverty"].value == 'no') {
+      this.registerForm.controls["isManager"].setValue(false);
+      this.becomeManager();
+    }
+  }
   becomeManager() {
     if (this.registerForm.controls["isManager"].value) {
       this.isManager = "block";
@@ -101,28 +107,28 @@ export class SignupComponent {
   });
   sendOtp() {
     console.log("form data", this.registerForm.value);
-    this.phoneNumber =
-      this.phoneNumber + this.registerForm.controls["mobileNo"].value;
-    console.log("phone number", this.phoneNumber);
-    signInWithPhoneNumber(
-      this.auth,
-      this.phoneNumber,
-      this.windowRef.recaptchaVerifier
-    )
-      .then((confirmationResult: any) => {
-        console.log("kuchh aya re", confirmationResult);
-        this.windowRef.confirmationResult = confirmationResult;
-        this.snack.open("OTP has been sent on your mobile number", "ok", {
-          horizontalPosition: "right",
-          verticalPosition: "top",
-          duration: 2000,
-        });
-        this.step1 = "none";
-        this.step2 = "block";
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+    // this.phoneNumber =
+    //   this.phoneNumber + this.registerForm.controls["mobileNo"].value;
+    // console.log("phone number", this.phoneNumber);
+    // signInWithPhoneNumber(
+    //   this.auth,
+    //   this.phoneNumber,
+    //   this.windowRef.recaptchaVerifier
+    // )
+    //   .then((confirmationResult: any) => {
+    //     console.log("kuchh aya re", confirmationResult);
+    //     this.windowRef.confirmationResult = confirmationResult;
+    //     this.snack.open("OTP has been sent on your mobile number", "ok", {
+    //       horizontalPosition: "right",
+    //       verticalPosition: "top",
+    //       duration: 2000,
+    //     });
+    //     this.step1 = "none";
+    //     this.step2 = "block";
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
   }
   async verifyOTP() {
     await this.getCollectionCount();

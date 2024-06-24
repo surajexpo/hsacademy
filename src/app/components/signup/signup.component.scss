@@ -2,8 +2,11 @@
 .bg-color{
   background-color: #191919;
 }
+.left-image{
+  width: 100%;
+}
 .general-form{
-  width: 50%;
+ 
   margin: auto;
 }
 input:-webkit-autofill,
@@ -19,7 +22,6 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 .login {
   height: auto;
   color: white;
@@ -113,18 +115,18 @@ display: none;
 .text-fields {
   height: 3rem;
 }
-/* .bg-image {
-  min-height: 743px;
-} */
+.left-image{
+display: none;
+}
 }
 @media screen and (max-width: 576px) {
-  .general-form{
-    width:80%;
-  }
+ 
   .f-label label, .small-font{
     font-size: small;
   }
- 
+  .left-image{
+   display: none;
+  }
 }
 
 
